@@ -1,5 +1,5 @@
 # Park-Go
-#Introduction
+# Introduction
 Commuting to a large campus such as the University of Minnesota can be challenging, particularly when it comes to finding convenient parking. Park&Go is a web application designed to help University of Minnesota students locate available parking options quickly and efficiently. The platform provides users with multiple choices, including street parking, contract parking, and campus garages, enabling them to compare and select the most suitable option. Park&Go simplifies the parking experience and makes getting to campus easier.
 
 # version 1: 12/31/25

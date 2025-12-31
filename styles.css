@@ -166,7 +166,7 @@ a {
 
 /* Searchbar Container */
 .searchbar {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 3px solid rgba(0, 0, 0, 0.08);
     padding: 18px 2px;
 }
 
@@ -463,4 +463,5 @@ a {
 }
 .git_hub_link_title:hover{
     color: #38455b;
+
 }

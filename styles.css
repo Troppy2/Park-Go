@@ -1,0 +1,466 @@
+/*Global Styles*/
+* {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    box-sizing: border-box;
+    /* Crucial for preventing overflow */
+}
+
+html,
+body {
+    height: 100%;
+    /* Ensures full viewport height */
+    overflow: hidden;
+    /* Removes main window scrollbars */
+}
+
+/*Map Styling*/
+#map {
+    height: 100%;
+}
+
+/*menu button styling*/
+
+.menu_icon_box {
+    z-index: 2;
+    width: fit-content;
+    height: auto;
+    background-color: rgba(250, 250, 250, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    margin: 20px;
+    position: absolute;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu_icon_box:hover {
+    background-color: rgba(224, 224, 224, 0.9);
+}
+
+.line1,
+.line2,
+.line3 {
+    width: 40px;
+    height: 4px;
+    margin: 7px 9px;
+    background-color: #000;
+    border-radius: 50px;
+    transition: 0.2s;
+}
+
+.active .line1 {
+    transform: translate(0px, 10px)rotate(45deg);
+}
+
+.active .line2 {
+    opacity: 0;
+}
+
+.active .line3 {
+    transform: translate(0px, -10px)rotate(-45deg);
+}
+
+
+
+/*Locate Me btn*/
+.locate_me_button {
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(250, 250, 250, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    margin: 30px;
+    bottom: 10px;
+    right: -19px;
+    position: absolute;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.locate_me_button::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 2px;
+}
+
+.locate_me_button:hover {
+    background-color: rgba(224, 224, 224, 0.9);
+}
+
+.locate_me_button.active {
+    background-color: #007aff;
+    border-color: #007aff;
+}
+
+.locate_me_button.active::before {
+    background-color: white;
+}
+
+/*Sidebar stylings*/
+.sidebar {
+    border: 0px 0px 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 380px;
+    height: 100%;
+    padding: 0;
+    background-color: rgba(250, 250, 250, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    margin: 0;
+    padding: 5px;
+    box-sizing: border-box;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
+    overflow-y: auto;
+}
+
+/* Sidebar Open State */
+.sidebar.open {
+    transform: translateX(0);
+    /* SLIDE INTO VIEW */
+}
+
+
+/*Logo Styling*/
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo {
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+}
+
+.park-text {
+    color: #7A0019;
+    /* UMN Maroon */
+}
+
+.and {
+    color: #FFCC33;
+    /* UMN Gold */
+}
+
+.go-text {
+    color: #91253b;
+    /* UMN Maroon */
+}
+
+/* Searchbar Container */
+.searchbar {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 18px 2px;
+}
+
+/* Search Input */
+#searchbar {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #c3c6ca;
+    border-radius: 12px;
+    font-size: 15px;
+    outline: none;
+    background: white;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* Hover State - Black outline */
+#searchbar:hover {
+    border-color: #1e293b;
+}
+
+/* Focus/Click State - Maroon with glow */
+#searchbar:focus {
+    border-color: #7A0019;
+    box-shadow: 0 0 0 4px rgba(122, 0, 25, 0.15);
+}
+
+
+#searchbar::placeholder {
+    color: #87909c;
+}
+
+/* Filter Section */
+
+.filter-section {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.filter-title {
+    padding: 16px 20px;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.filter-content {
+    padding: 0 20px 20px 20px;
+}
+
+/* Individual Filter Group */
+.filter-group {
+    margin-bottom: 16px;
+}
+
+.filter-group:last-child {
+    margin-bottom: 0;
+}
+
+.filter-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1e293b;
+    margin-bottom: 2px;
+}
+
+/* Select Dropdown Styling */
+.filter-select {
+    width: 80%;
+    padding: 12px 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 14px;
+    background: white;
+    color: #1e293b;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.filter-select:hover {
+    border-color: #1e293b;
+}
+
+.filter-select:focus {
+    border-color: #7A0019;
+    box-shadow: 0 0 0 4px rgba(122, 0, 25, 0.15);
+}
+
+.filter-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23334155' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+}
+
+/*sugessted_parking_spots styling*/
+.sugessted_parking_spots {
+    border-top: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+.suggested_spot1,
+.suggested_spot2,
+.suggested_spot3 {
+    border: 1.5px solid #c3c6ca;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 30px;
+    margin: 20px auto;
+    padding: 40px;
+    width: 70%;
+    max-width: 1000px;
+}
+
+.suggested_spot1:hover,
+.suggested_spot2:hover,
+.suggested_spot3:hover {
+    border-color: #7A0019;
+    box-shadow: 0 0 0 4px rgba(122, 0, 25, 0.15);
+}
+
+/* Scrollbar */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+
+
+/*Parking Suggestion styling*/
+.new_parking_suggestion {
+    z-index: 2;
+    width: fit-content;
+    height: auto;
+    background-color: rgba(250, 250, 250, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    margin: 20px;
+    padding: 10px;
+    left: 70px;
+    position: absolute;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+.new_parking_suggestion:hover {
+    background-color: rgba(224, 224, 224, 0.9);
+}
+
+.new_parking_suggestion_modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 420px;
+    max-height: 100vh;
+    background-color: rgba(250, 250, 250, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+
+}
+
+.new_parking_suggestion_modal.open {
+    display: block;
+    /*Transition when opening*/
+    transition: transform 0.1s ease-in;
+}
+
+.new_parking_suggestion_modal.close{
+    display: block;
+    transition: transform 0.1s ease-out;
+}
+.modal-title {
+    margin: 0 0 20px 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+
+
+
+.new_parking_suggestion label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1e293b;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.modal-input,
+.modal-select {
+    width: 100%;
+    padding: 13px 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+    background: white;
+}
+
+.modal-input:focus,
+.modal-select:focus {
+    border-color: #7A0019;
+    box-shadow: 0 0 0 4px rgba(122, 0, 25, 0.15);
+}
+
+.modal-submit-btn {
+    width: 30%;
+    padding: 13px 14px;
+    margin: 10px;
+    transform: translate(50%);
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+    background: white;
+}
+
+.modal-submit-btn:focus {
+    border-color: #7A0019;
+    box-shadow: 0 0 0 4px rgba(122, 0, 25, 0.15);
+}
+
+.modal-input:hover,
+.modal-select:hover {
+    border-color: #7A0019;
+    box-shadow: 0 0 0 4px rgba(122, 0, 25, 0.15);
+}
+
+.modal-submit-btn:hover {
+    border-color: #7A0019;
+    box-shadow: 0 0 0 4px rgba(122, 0, 25, 0.15);
+}
+
+/*close button for parking suggestion modal*/
+
+.modal-close-btn {
+    z-index: 1002;
+    width: 30%;
+    padding: 13px 14px;
+    margin: 10px;
+    transform: translate(50%);
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+    background: white;
+}
+
+.modal-close-btn:focus {
+    border-color: #7A0019;
+    box-shadow: 0 0 0 4px rgba(122, 0, 25, 0.15);
+}
+
+.modal-close-btn:hover {
+    border-color: #7A0019;
+    box-shadow: 0 0 0 4px rgba(122, 0, 25, 0.15);
+}
+
+.git_hub_link{
+    text-align: center;
+    padding: 3px;
+    border-top: 3px solid rgba(0, 0, 0, 0.08);
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+
+}
+.git_hub_link_title:hover{
+    color: #38455b;
+}

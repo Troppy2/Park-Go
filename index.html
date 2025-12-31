@@ -1,0 +1,286 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Park&Go - A University of Minnesota Parking Guide</title>
+    <link href="styles.css" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="Park&Go_Logo.png">
+    <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@5.15.0/dist/maplibre-gl.css' />
+    <script src='https://unpkg.com/maplibre-gl@5.15.0/dist/maplibre-gl.js'></script>
+</head>
+
+<body>
+    <!--navigation button-->
+    <div class="nav_button">
+        <div class="menu_icon_box" id="menu-button">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+
+    </div>
+
+    <!--Parking Suggestion modal-->
+    <div class="new_parking_suggestion" id="parking-suggestion-btn">
+        <a>Parking Suggestion</a>
+    </div>
+
+    <div class="new_parking_suggestion_modal" id="new_parking_suggestion_modal">
+        <h4 class="modal-title">New Parking Suggestion</h4>
+
+        <label for="email-input">Email</label>
+        <input type="email" id="email-input" class="modal-input" />
+
+        <label for="street-input">Street Name</label>
+        <input type="text" id="street-input" class="modal-input" />
+
+        <label for="parking-type-input">Parking Type</label>
+        <select id="parking-type-input" class="modal-select">
+            <option value="">Select Type</option>
+            <option value="street">Street / Metered Parking</option>
+            <option value="garage">Parking Ramp / Garage</option>
+            <option value="surface">Surface Lot</option>
+            <option value="contract">Permit / Contract Parking</option>
+            <option value="event">Event Parking</option>
+        </select>
+
+        <label for="campus-location-input">Campus Location</label>
+        <select id="campus-location-input" class="modal-select">
+            <option value="">Select Location</option>
+            <option value="east">East Bank</option>
+            <option value="west">West Bank</option>
+        </select>
+
+        <button class="modal-submit-btn">Submit</button>
+        <button class="modal-close-btn">Close</button>
+    </div>
+    <!--sidebar-->
+    <div class="sidebar" id="sidebar">
+        <h2 class="logo" id="logo-close">
+            <a href="#">
+                <span class="park-text">Park</span><span class="and">&</span><span class="go-text">Go</span>
+            </a>
+        </h2>
+        <div class="searchbar">
+            <input type="text" name="Search" id="searchbar" placeholder="Search Parking Spots">
+        </div>
+        <div class="filter-section">
+            <h4 class="filter-title">Filters</h4>
+
+            <div class="filter-content">
+                <div class="filter-group">
+                    <label for="parking-type-select">Parking Type</label>
+                    <select name="parking_type" id="parking-type-select" class="filter-select" required>
+                        <option value="">Select Type</option>
+                        <option value="street">Street / Metered Parking</option>
+                        <option value="garage">Parking Ramp / Garage</option>
+                        <option value="surface">Surface Lot</option>
+                        <option value="contract">Permit / Contract Parking</option>
+                        <option value="event">Event Parking</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="campus-location-select">Campus Location</label>
+                    <select name="campus_location" id="campus-location-select" class="filter-select">
+                        <option value="">Select Location</option>
+                        <option value="east">East Bank</option>
+                        <option value="west">West Bank</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="sugessted_parking_spots">
+            <!--1/2 will be made based on user filter data and time-->
+            <div class="suggested_spot1">
+                <div class="spot1_street"></div>
+                <div class="spot1_parking_type"></div>
+                <div class="spot1_campus_location"></div>
+                <div class="spot1_walk_time"></div>
+                <div class="spot1_route_class_btn">
+                    <label>Building</label>
+                    <select>
+                        <option>Building 1</option>
+                        <option>Building 1</option>
+                        <option>Building 1</option>
+                        <option>Building 1</option>
+                        <option>Building 1</option>
+                        <option>Building 1</option>
+                    </select>
+                </div>
+            </div>
+            <div class="suggested_spot2">
+                <div class="spot2_street"></div>
+                <div class="spot2_parking_type"></div>
+                <div class="spot2_campus_location"></div>
+                <div class="spot2_walk_time"></div>
+                <div class="spot2_route_class_btn">
+                    <label>Building</label>
+                    <select>
+                        <option>Building 1</option>
+                        <option>Building 1</option>
+                        <option>Building 1</option>
+                        <option>Building 1</option>
+                        <option>Building 1</option>
+                        <option>Building 1</option>
+                    </select>
+                </div>
+            </div>
+            <!--last Suggestd spot will be made by using user data-->
+            <div class="suggested_spot3">
+                <div class="spot3_street"></div>
+                <div class="spot3_parking_type"></div>
+                <div class="spot3_campus_location"></div>
+                <div class="spot3_walk_time"></div>
+                <div class="spot3_route_class_btn">
+                    <label>Building</label>
+                    <select>
+                        <option>Building 1</option>
+                        <option>Building 1</option>
+                        <option>Building 1</option>
+                        <option>Building 1</option>
+                        <option>Building 1</option>
+                        <option>Building 1</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!--My git hub-->
+        <div class="git_hub_link">
+            <div class="col">
+                <div class="row"> 
+                    <a href="https://github.com/Troppy2" class="git_hub_link_title">GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--locate me button-->
+    <div class="locate_me_button" id="locate_me_button"></div>
+    <!--maplelibre 3D map-->
+    <div id="map"></div>
+    <script>
+        const map = new maplibregl.Map({
+            style: `https://tiles.openfreemap.org/styles/bright`,
+            center: [-93.23299752640466, 44.970787925016175],
+            zoom: 15.5,
+            pitch: 45,
+            bearing: -17.6,
+            container: 'map',
+            canvasContextAttributes: { antialias: true }
+        });
+
+        // The 'building' layer in the streets vector source contains building-height
+        // data from OpenStreetMap.
+        map.on('load', () => {
+            // Insert the layer beneath any symbol layer.
+            const layers = map.getStyle().layers;
+
+            let labelLayerId;
+            for (let i = 0; i < layers.length; i++) {
+                if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+                    labelLayerId = layers[i].id;
+                    break;
+                }
+            }
+
+            map.addSource('openfreemap', {
+                url: `https://tiles.openfreemap.org/planet`,
+                type: 'vector',
+            });
+
+            map.addLayer(
+                {
+                    'id': '3d-buildings',
+                    'source': 'openfreemap',
+                    'source-layer': 'building',
+                    'type': 'fill-extrusion',
+                    'minzoom': 15.5,
+                    'filter': ['!=', ['get', 'hide_3d'], true],
+                    'paint': {
+                        'fill-extrusion-color': [
+                            'interpolate',
+                            ['linear'],
+                            ['get', 'render_height'], 0, 'lightgray', 200, 'royalblue', 400, 'lightblue'
+                        ],
+                        'fill-extrusion-height': [
+                            'interpolate',
+                            ['linear'],
+                            ['zoom'],
+                            15,
+                            0,
+                            16,
+                            ['get', 'render_height']
+                        ],
+                        'fill-extrusion-base': ['case',
+                            ['>=', ['get', 'zoom'], 16],
+                            ['get', 'render_min_height'], 0
+                        ]
+                    }
+                },
+                labelLayerId
+            );
+        });
+
+        // ... after map code ...
+
+        //Sidebar and Modal variables
+        const menuButton = document.getElementById('menu-button');
+        const sidebar = document.getElementById('sidebar');
+        const logoClose = document.getElementById('logo-close');
+        const parkingSuggestionBtn = document.getElementById('parking-suggestion-btn');
+        const newParkingSuggestionModal = document.getElementById('new_parking_suggestion_modal');
+        const suggestionSubmitBtn = document.querySelector('.modal-submit-btn');
+        const modalClose = document.querySelector(".modal-close-btn"); // Ensure you use the correct ID: modal-close-btn
+
+        // Open sidebar (logic remains the same)
+        if (menuButton && sidebar && parkingSuggestionBtn) {
+            menuButton.addEventListener('click', () => {
+                sidebar.classList.add('open');
+                menuButton.classList.add('hidden');
+                parkingSuggestionBtn.classList.add('visible');
+                menuButton.classList.add('active');
+            });
+        }
+
+        // Close sidebar 
+        if (logoClose && sidebar && menuButton && parkingSuggestionBtn) {
+            logoClose.addEventListener('click', () => {
+                sidebar.classList.remove('open');
+                menuButton.classList.remove('hidden');
+                parkingSuggestionBtn.classList.remove('visible');
+                menuButton.classList.remove('active');
+            });
+        }
+
+        // Open modal
+        if (parkingSuggestionBtn) {
+            parkingSuggestionBtn.addEventListener('click', () => {
+                newParkingSuggestionModal.classList.add('open');
+                parkingSuggestionBtn.classList.add('active-glow');
+            });
+        }
+
+        // Close modal 
+        if (modalClose || parkingSuggestionBtn) {
+            modalClose.addEventListener('click', () => {
+                newParkingSuggestionModal.classList.remove('open');
+            });
+        }
+
+        // Submit button closes the modal
+        if (suggestionSubmitBtn) {
+            suggestionSubmitBtn.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent page reload/form submission
+                newParkingSuggestionModal.classList.remove('open');
+                parkingSuggestionBtn.classList.remove('active-glow');
+                // future form submison logic 
+            });
+        }
+    </script>
+
+</body>
+
+</html>

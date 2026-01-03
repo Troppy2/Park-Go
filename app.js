@@ -78,6 +78,7 @@ const map = new maplibregl.Map({
                 menuButton.classList.add('hidden');
                 parkingSuggestionBtn.classList.add('visible');
                 menuButton.classList.add('active');
+                 newParkingSuggestionModal.classList.remove('open');
             });
         }
 
@@ -114,4 +115,5 @@ const map = new maplibregl.Map({
                 parkingSuggestionBtn.classList.remove('active-glow');
                 // future form submison logic 
             });
+
         }

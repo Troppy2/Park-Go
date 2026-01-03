@@ -60,7 +60,7 @@ const map = new maplibregl.Map({
             );
         });
 
-        // ... after map code ...
+        //after map code
 
         //Sidebar and Modal variables
         const menuButton = document.getElementById('menu-button');
@@ -117,4 +117,5 @@ const map = new maplibregl.Map({
             });
 
         }
+
 

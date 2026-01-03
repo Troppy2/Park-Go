@@ -69,9 +69,9 @@ const map = new maplibregl.Map({
         const parkingSuggestionBtn = document.getElementById('parking-suggestion-btn');
         const newParkingSuggestionModal = document.getElementById('new_parking_suggestion_modal');
         const suggestionSubmitBtn = document.querySelector('.modal-submit-btn');
-        const modalClose = document.querySelector(".modal-close-btn"); // Ensure you use the correct ID: modal-close-btn
+        const modalClose = document.querySelector(".modal-close-btn"); 
 
-        // Open sidebar (logic remains the same)
+        // Open sidebar
         if (menuButton && sidebar && parkingSuggestionBtn) {
             menuButton.addEventListener('click', () => {
                 sidebar.classList.add('open');
@@ -117,3 +117,4 @@ const map = new maplibregl.Map({
             });
 
         }
+

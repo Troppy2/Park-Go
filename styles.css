@@ -487,6 +487,8 @@ a {
 .design-title{
     text-align: center;
     padding: 10px;
+    font-size: 16px;
+    font-weight: 600;
     color: #1e293b;
     transition:  0.3s ease;
     text-decoration-thickness: 2px;
@@ -575,3 +577,4 @@ a {
 .route-select:hover {
     border-color: #7A0019;
 }
+

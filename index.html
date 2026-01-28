@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Park&Go - A University of Minnesota Parking Guide</title>
-    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='Park&Go_Logo.png') }}">
+    <link href="styles.css" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="Park&Go_Logo.png">
     <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@5.15.0/dist/maplibre-gl.css' />
     <script src='https://unpkg.com/maplibre-gl@5.15.0/dist/maplibre-gl.js'></script>
 </head>
@@ -281,7 +281,8 @@
     <div class="locate_me_button" id="locate_me_button"></div>
     <!--maplelibre 3D map-->
     <div id="map"></div>
-    <script src="{{ url_for('static', filename='app.js') }}"></script>
+    <script src="app.js"></script>
 </body>
+
 
 </html>

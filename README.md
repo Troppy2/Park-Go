@@ -13,7 +13,7 @@ Park&Go is a web application designed to help students compare and find affordab
 - **Search:** Allows users to search for parking spots by name. The current implementation returns up to five similar results. *(Under development)*
 - **Filters:** Enables users to narrow down parking options for a more personalized experience.
 - **Suggested Parking Spots:** Uses user-provided information and selected filters to recommend parking locations. *(Under development)*
-- **Submit Parking Suggestions:** Allows users to submit new parking locations, expanding the available parking database.
+- **Submit Parking Suggestions:** Allows users to submit new parking locations, expanding the available parking database. *(Under development)*
 
 ## Version 1.01 — 01/27/2020
 

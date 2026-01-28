@@ -35,3 +35,8 @@ Once fully completed and deployed, Park&Go aims to significantly reduce the time
   - python-dotenv
 - **APIs:**
   - Google OAuth 2.0
+## Lessons Learned
+- Learned the importance of using a modern web framework like **React** for front-end development.  
+  The project currently has over 500 lines of CSS, much of which is repetitive and inefficient.  
+  For example, coding the sidebar took around 5 hours due to the unoptimized CSS setup.  
+  Using a framework like React could significantly reduce development time and improve maintainability.

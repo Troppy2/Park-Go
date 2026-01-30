@@ -10,7 +10,6 @@ from oauthlib.oauth2 import WebApplicationClient
 from models import db, User
 
 # Allow OAuth over HTTP for local development (REMOVE IN PRODUCTION!)
-os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 class GoogleAuth:
     """
     Handles Google OAuth 2.0 authentication flow
@@ -128,4 +127,5 @@ def init_auth(app):
     """
     Initialize authentication for the Flask app
     """
+
     return GoogleAuth(app)
